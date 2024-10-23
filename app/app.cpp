@@ -16,20 +16,23 @@ namespace vsite::oop::v1
 	}
 
     void mult_table(int n, std::ostream& ss) {
-        if (n < 0 || n > 20 || n == 0) {
+        if (n <= 0 || n > 20) {
             return;
         }
-        ss << std::format("{}", 0);
-        for (int j = 1; j <= n; ++j) {
-            ss << std::format("{:4}", j); 
+        for (int i = 0; i <= n; ++i) {
+            for (int j = 0; j <= n; ++j){
+                if (j == 0) {
+                    ss << std::format("{}", i);
+                }
+                else if (i == 0) {
+                    ss << std::format("{:4}", j);
+                }
+                else {
+                    ss << std::format("{:4}", i * j);
+                }
         }
-        ss << '\n';
-        for (int i = 1; i <= n; ++i) {
-            ss << std::format("{}", i);
-            for (int j = 1; j <= n; ++j) {
-                ss << std::format("{:4}", i * j);
-            }
-            ss << '\n';
+       
+        ss << "\n";
         }
 	}
 } // namespace
